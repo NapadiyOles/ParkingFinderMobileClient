@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Parking Finder</string>
+    <string name="title_activity_auth">Auth</string>
+    <string name="tv_log_in">Log in</string>
+    <string name="ti_email_hint">Enter email</string>
+    <string name="ti_pwd_hint">Enter password</string>
+<!--    <string name="tw_no_account">Don\'t have an account yet? Sign up</string>-->
+    <string name="tw_no_account">Don\'t have an account yet?</string>
+    <string name="bn_signup">Sign up</string>
+    <string name="bn_login">Log in</string>
+    <string name="tv_sign_up">Sign up</string>
+    <string name="tv_have_account">Already have an account?</string>
+    <string name="ti_name">Enter name</string>
+    <string name="ti_confirm_pwd">Confirm password</string>
+
+    <!-- Strings used for fragments for navigation -->
+
+</resources>
