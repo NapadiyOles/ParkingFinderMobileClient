@@ -3,53 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ProfileFragment"
+    >
 
     <TextView
         android:id="@+id/tv_greeting"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Hi, User"
+        android:text="@string/tv_greeting"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/bn_favourites"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.4" />
 
-    <Button
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/bn_favourites"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Favourites"
+        android:text="@string/bn_favourites"
         android:textSize="16sp"
+        app:icon="@drawable/ic_favourites"
+        app:iconGravity="textStart"
+        app:iconSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/bn_find"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/bn_find"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        android:text="Find parking"
+        android:text="@string/bn_find"
         android:textSize="16sp"
+        app:icon="@drawable/ic_location"
+        app:iconGravity="textStart"
+        app:iconSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/bn_logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bn_favourites" />
 
     <Button
         android:id="@+id/bn_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Log out"
+        android:layout_marginBottom="16dp"
+        android:text="@string/bn_logout"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

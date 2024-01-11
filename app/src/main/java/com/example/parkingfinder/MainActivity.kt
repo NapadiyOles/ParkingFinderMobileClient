@@ -1,21 +1,51 @@
 package com.example.parkingfinder
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.parkingfinder.ui.theme.ParkingFinderTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import com.example.parkingfinder.databinding.ActivityMainBinding
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
-    private lateinit var intent: Intent
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        val sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+        val userToken = sharedPreferences.getString("UserToken", null)
+        val status = sharedPreferences.getString("UserStatus", null)
+
+        if (userToken == null) {
+            // Navigate to Login Fragment
+            navController.navigate(R.id.loginFragment)
+        } else if (status == null) {
+            // Navigate to Profile Fragment
+            navController.navigate(R.id.profileFragment)
+        } else {
+            navController.navigate( when (status) {
+                "Away" -> {
+                    R.id.profileFragment
+                }
+                "Parking" -> {
+                    R.id.parkingFragment
+                }
+                "Leaving" -> {
+                    R.id.leavingFragment
+                }
+
+                else -> {
+                    R.id.profileFragment
+                }
+            })
+        }
     }
 }
 //
